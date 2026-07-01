@@ -51,3 +51,20 @@ branches:
         {
           "regexp": "^\\s*file:\\s*(.*)",
           "file": 1
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    target-branch: "main"
+    allow:
+      - dependency-type: direct
+    versioning-strategy: increase-if-necessary
+    commit-message:
+      prefix: deps
+      prefix-development: chore
+    labels:
+      - "Dependencies"
+    open-pull-requests-limit: 10
